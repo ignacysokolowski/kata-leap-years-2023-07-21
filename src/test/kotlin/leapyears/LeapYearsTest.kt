@@ -23,5 +23,8 @@ class LeapYearsTest {
     }
 
     private fun isLeapYear(year: Int): Boolean =
-        year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
+        isDivisibleBy(4, year) && (!isDivisibleBy(100, year) || isDivisibleBy(400, year))
+
+    private fun isDivisibleBy(divisor: Int, year: Int): Boolean =
+        year % divisor == 0
 }
