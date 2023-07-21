@@ -23,7 +23,10 @@ class LeapYearsTest {
     }
 
     private fun isLeapYear(year: Int): Boolean =
-        isDivisibleBy(4, year) && (!isDivisibleBy(100, year) || isDivisibleBy(400, year))
+        isDivisibleBy(4, year) && !isAnAtypicalCommonYear(year)
+
+    private fun isAnAtypicalCommonYear(year: Int): Boolean =
+        isDivisibleBy(100, year) && !isDivisibleBy(400, year)
 
     private fun isDivisibleBy(divisor: Int, year: Int): Boolean =
         year % divisor == 0
