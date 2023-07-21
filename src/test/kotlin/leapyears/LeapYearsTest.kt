@@ -14,6 +14,10 @@ class LeapYearsTest {
         assertTrue(isLeapYear(1996))
     }
 
+    @Test fun `does not categorize year divisible by 4 and 100 as a leap year`() {
+        assertFalse(isLeapYear(1900))
+    }
+
     private fun isLeapYear(year: Int): Boolean =
-        year % 4 == 0
+        year % 4 == 0 && year % 100 != 0
 }
